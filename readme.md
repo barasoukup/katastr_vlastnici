@@ -15,6 +15,6 @@ Nástroj používá bezplatný přístup k informacím z katastru přes http://n
 
 Pokud vše proběhne hladce, vytvoří se nám nový geojson se novými detaily o parcelách + shrnutí vlastnických práv a práv na hospodaření. Detailní struktura práv se ukládá do json a csv vedle.
 Pokud v průběhu zpracování dejde k naplnění limitu, vyčkejte aspoň hodinu, výstupní CSV z minulého běhu označte jako vstupní (vyhnete se tak znovu řešení již zjištěných parcel). Výstupní JSON a CSV podrobné struktury vlastníků se však přemaže, proto při opakovaném běhu zálohujete a posléze ručně slučte.
-
+Přístupový bod používá zaokrouhlení na metry. U malých a úzkých pozemků se může stát, že po zaokrohlení se nástroj netrefí do správného pozemku. Na to je myšleno - pokud se netrefí, zkouší se okolních 8 pozemků. Přesto se může stát, že ani jeden z nich nebude ležet na správné parcely a inforamce o ni bude nutné doplnit ručně jiným způsobem.
 
  Autor tohoto nástroje nenese žádné právní následky plynoucí z použití nástroje.
