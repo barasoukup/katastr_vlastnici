@@ -10,10 +10,10 @@ Nástroj používá bezplatný přístup k informacím z katastru přes http://n
 
 1. Z http://atom.cuzk.cz/ stáhneme "Katastrální mapa pro katastrální území X" ve formátu SHP a souřadnicovém systému 5514.
 2. V QGISu otevřeme *PARCELY_KN_DEF.shp*, vybereme definiční body parcel, které nás zajímají, a uložíme je v odděleném souboru ve formátu geojson a souřadnicovém systému 5514.
-3. Otevřeme python scrip *katastr_vlastnici.py* a do proměnné src doplníme cestu ke zdrojovému geojsonu z předchozího kroku.
+3. Otevřeme python script *katastr_vlastnici.py* a do proměnné src doplníme cestu ke zdrojovému geojsonu z předchozího kroku.
 4. Můžeme změnit i cesty k výstupním souborům.
 
-Pokud vše proběhne hladce, vytvoří se nám nový geojson se novými detaily o parcelách + se shrnutím vlastnických práv a práv na hospodaření. Detailní struktura práv se ukládá do json a csv vedle.
+Pokud vše proběhne hladce, vytvoří se nám nový geojson se novými detaily o parcelách + shrnutí vlastnických práv a práv na hospodaření. Detailní struktura práv se ukládá do json a csv vedle.
 Pokud v průběhu zpracování dejde k naplnění limitu, vyčkejte aspoň hodinu, výstupní CSV z minulého běhu označte jako vstupní (vyhnete se tak znovu řešení již zjištěných parcel). Výstupní JSON a CSV podrobné struktury vlastníků se však přemaže, proto při opakovaném běhu zálohujete a posléze ručně slučte.
 
 
