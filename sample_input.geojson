@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "panelak",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::5514" } },
+"features": [
+{ "type": "Feature", "properties": { "ID": "9742", "ID_2": "2348925611", "TYPPPD_KOD": "100028", "KATUZE_KOD": 621757, "TEXT_KM": "st. 3266", "PAR_VYMERA": 232, "DRUPOZ_KOD": 13, "ZPVYPA_KOD": null, "BUD_ID": "437504611" }, "geometry": { "type": "Point", "coordinates": [ -601442.1, -1080513.94 ] } },
+{ "type": "Feature", "properties": { "ID": "9743", "ID_2": "2348926611", "TYPPPD_KOD": "100028", "KATUZE_KOD": 621757, "TEXT_KM": "st. 3267", "PAR_VYMERA": 231, "DRUPOZ_KOD": 13, "ZPVYPA_KOD": null, "BUD_ID": "437504611" }, "geometry": { "type": "Point", "coordinates": [ -601438.63, -1080531.94 ] } },
+{ "type": "Feature", "properties": { "ID": "684", "ID_2": "2355013611", "TYPPPD_KOD": "100018", "KATUZE_KOD": 621757, "TEXT_KM": "3431\/1", "PAR_VYMERA": 4952, "DRUPOZ_KOD": 14, "ZPVYPA_KOD": 16, "BUD_ID": null }, "geometry": { "type": "Point", "coordinates": [ -601481.14, -1080709.5 ] } },
+{ "type": "Feature", "properties": { "ID": "6797", "ID_2": "2354652611", "TYPPPD_KOD": "100018", "KATUZE_KOD": 621757, "TEXT_KM": "3294\/2", "PAR_VYMERA": 4664, "DRUPOZ_KOD": 5, "ZPVYPA_KOD": null, "BUD_ID": null }, "geometry": { "type": "Point", "coordinates": [ -601407.56, -1080498.09 ] } },
+{ "type": "Feature", "properties": { "ID": "6799", "ID_2": "2354655611", "TYPPPD_KOD": "100018", "KATUZE_KOD": 621757, "TEXT_KM": "3294\/5", "PAR_VYMERA": 483, "DRUPOZ_KOD": 14, "ZPVYPA_KOD": 26, "BUD_ID": null }, "geometry": { "type": "Point", "coordinates": [ -601433.69, -1080504.29 ] } },
+{ "type": "Feature", "properties": { "ID": "6800", "ID_2": "2354656611", "TYPPPD_KOD": "100018", "KATUZE_KOD": 621757, "TEXT_KM": "3294\/6", "PAR_VYMERA": 1654, "DRUPOZ_KOD": 14, "ZPVYPA_KOD": 26, "BUD_ID": null }, "geometry": { "type": "Point", "coordinates": [ -601463.76, -1080505.12 ] } },
+{ "type": "Feature", "properties": { "ID": "9996", "ID_2": "3468749611", "TYPPPD_KOD": "100018", "KATUZE_KOD": 621757, "TEXT_KM": "3294\/16", "PAR_VYMERA": 87, "DRUPOZ_KOD": 5, "ZPVYPA_KOD": null, "BUD_ID": null }, "geometry": { "type": "Point", "coordinates": [ -601426.12, -1080530.57 ] } }
+]
+}
