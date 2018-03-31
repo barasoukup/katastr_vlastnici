@@ -14,7 +14,7 @@ Nástroj používá bezplatný přístup k informacím z katastru přes http htt
 4. Můžeme změnit i cesty k výstupním souborům.
 
 Pokud vše proběhne hladce, vytvoří se nám nový geojson se novými detaily o parcelách + se shrnutím vlastnických práv a práv na hospodaření. Detailní struktura práv se ukládá do json a csv vedle.
-Pokud v průběhu zpracování dejde k naplnění limitu, vyčkejte aspoň hodinu, výstupní CSV z minulého běhu označte jako vstupní (vyhnete se tak znovu řešení již zjištěných parcel).
+Pokud v průběhu zpracování dejde k naplnění limitu, vyčkejte aspoň hodinu, výstupní CSV z minulého běhu označte jako vstupní (vyhnete se tak znovu řešení již zjištěných parcel). Výstupní JSON a CSV podrobné struktury vlastníků se však přemaže, proto při opakovaném běhu zálohujete a posléze ručně slučte.
 
 
  Autor tohoto nástroje nenese žádné právní následky plynoucí z použití nástroje.
