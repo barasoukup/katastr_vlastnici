@@ -9,6 +9,9 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import csv
+import time
+from random import randint
+
 
 src = 'sample_input.geojson'
 out = 'out.geojson'
@@ -29,16 +32,17 @@ def update_info(pozemek):
     #info o parcele
         atributy = soup.find(summary="Atributy parcely")
         if atributy:
-            print(atributy.find_next("td").find_next("td").text)
+            #print(atributy.find_next("td").find_next("td").text)
             if atributy.find_next("td").find_next("td").text == pozemek["properties"]["TEXT_KM"]:
                 spravna = True
                 break
         else:
-            print(soup)
+            #print(soup)
             break
-    print(spravna)
+    #print(spravna)
     if not spravna:
         print("Nepodarilo se zjistit informace o parcele",pozemek["properties"]["TEXT_KM"])
+        return None
     else:
         for row in atributy.find_all("tr"):
             pozemek["properties"][row.find_next("td").text]=row.find_next("td").find_next("td").text
@@ -60,7 +64,7 @@ def update_info(pozemek):
                 else:
                     citatel,jmenovatel = podil_t.split("/")
                     podil = float(citatel)/float(jmenovatel)     
-                print("\t"+pravo, subjekt,podil_t, podil, sep='; ')
+                #print("\t"+pravo, subjekt,podil_t, podil, sep='; ')
                 prava.append([pravo, subjekt, podil_t, podil])
             row = row.find_next("tr")
         return prava
@@ -119,15 +123,38 @@ if __name__ == "__main__":
     
     with open(src) as data_file:    
         data = json.load(data_file)
-    features = data["features"]
-    for pozemek in features:
-        print(pozemek["properties"]["TEXT_KM"])
-        if not "Vlastník" in pozemek["properties"]:
-            prava = update_info(pozemek)
-            vlastnici_dict[pozemek["properties"]["ID_2"]] = prava
-            vlastnik_label,hospodar_label = vlastnik_hospodar_label(prava)
-            pozemek["properties"]["Vlastník"]=vlastnik_label
-            pozemek["properties"]["Hospodář"]=hospodar_label
+    features_to_process = data["features"]
+    i=0
+    run = 0
+    while features_to_process:
+        run +=1
+        i=0
+        bad_features = []
+        for pozemek in features_to_process:
+            sleep_time = randint(30, 60)
+            time.sleep(sleep_time)
+            i+=1
+            print("dotaz {}/{}, parcelní číslo: {}".format(str(i),str(len(features_to_process)),pozemek["properties"]["TEXT_KM"]))
+            if not "Vlastník" in pozemek["properties"]:
+                try:
+                    prava = update_info(pozemek)
+                    if prava is None:
+                        bad_features.append(pozemek)
+                        print("bad feature {}".format)
+                    else:
+                        vlastnici_dict[pozemek["properties"]["ID_2"]] = prava
+                        vlastnik_label,hospodar_label = vlastnik_hospodar_label(prava)
+                        pozemek["properties"]["Vlastník"]=vlastnik_label
+                        pozemek["properties"]["Hospodář"]=hospodar_label
+                except:
+                    bad_features.append(pozemek)
+                    print("bad feature {}".format)
+        features_to_process = bad_features
+        print("bad features, run {}, features count {}".format(str(run),str(len(features_to_process))))
+        if run >10:
+            break
+            print(bad_features)
+ 
 
     with open(out, 'w') as outfile:
         json.dump(data, outfile)
